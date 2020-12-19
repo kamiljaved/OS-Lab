@@ -1,0 +1,32 @@
+Where does xv6 allocate and initialize the user stack?
+
+- in exec.c
+
+Figure out how to change that to use a page at the high-end of the xv6 user address space,
+instead of one between the code and heap.
+
+be very careful with is how xv6 currently
+tracks the size of a process's address space (currently with the sz field in the proc struct).
+There are a number of places in the code where this is used (e.g., to check whether an
+argument passed into the kernel is valid; to copy the address space). We recommend
+keeping this field to track the size of the code and heap, but doing some other accounting
+to track the stack, and changing all relevant code (i.e., that used to deal with sz ) to now
+work with your new accounting.
+
+be wary of growing your heap and overwriting your stack. In fact, you
+should always leave an unallocated (invalid) page between the stack and heap
+
+high end of the xv6 user address space is 640KB. Thus your stack page should live at 636KB-640KB.
+
+automatically growing the stack
+backwards when needed. Doing so would require you to see if a fault occurred on the
+page above the stack and then, instead of killing the offending process, allocating a new
+page, mapping it into the address space, and continuing to run.
+
+
+--------------------------------
+
+
+stack argc argv fill up?
+
+why leave a page unmapped between code and heap

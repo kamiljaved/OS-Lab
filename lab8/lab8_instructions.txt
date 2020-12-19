@@ -1,0 +1,61 @@
+ch. 27 of remzi?
+
+clone and join till next friday.
+	print the stack pointers for threads, etc.
+	run worker function in thread.
+locks till the monday after that, with test case.
+
+not implementing condition variables.
+
+threads have same address space as parent, but different stack. also same page directory, or similar page directory?
+	Hence multiple stacks. For the stack of thread, take memory from heap of parent process.
+can have thread_id or tid for tracking threads.
+	complicated because it would require many changes.
+else, use pid for threads as well.
+	doesn't require new scheduler.
+4 new system calls:
+	
+	sys_lock() uses lock_acquire
+	sys_unlock() uses lock_release
+	
+use program from book for testing locks? (of two threads (or maybe processes) changing same variable)
+	n += 1 (say, from 1000 to 2000000) (correct result with lock, incorrect without locks)
+
+thread library:
+	clone
+	join
+	user_level:
+		thread_create
+			start_routine is the fcn for clone. thread_create calls clone. It takes memory from malloc for stack, and pass it to clone.
+		thread_join
+
+type casting on void* is easier.
+
+clone is like fork.
+	fcn is the (starting) routine we want to run in the thread.
+	registers:
+		esp:
+			current position on stack (hence, same as ebp at start).
+		eax:
+			stores return values? 
+		ebp:
+			stack base pointer i.e. starting address pointer.
+		eip:
+			stores return addresses (e.g. adress of instruction to return to after executing a called function). ebp and esp are also pushed on stack and get new values for function.
+	from fork:
+		allocate process for pid, etc.
+		do not copy copyuvm, rather point it to same pagedirectory?
+		set kernel stack
+			contanis trapframe, etc. since different registers for thread, hence different kernel stack.
+		set user stack.
+		decide for each thing if should or should not be done in clone.
+join is like wait.
+	waits for all the threads to complete.
+	make appropriate changes.
+
+user level functions in ulib.c
+	implement user level functions in this.
+
+fake return pc:
+	
+	fork returns 0 in child.

@@ -1,0 +1,16 @@
+ls > outputfile
+ls    >     outputfile
+ls>outputfile
+ls -la > outputfile
+hello.py
+cd /home/sana
+cd 
+pwd
+exit
+
+
+
+
+
+	
+          

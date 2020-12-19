@@ -1,0 +1,61 @@
+scheduling
+round robin   mlfq
+change xv6's round robin shceduler to mlfq+lottery_scheduler
+mlfq: 2-level queue, queue 1(high priority) and 0(low priority),
+lottery scheduling
+
+before next lab:
+read chapter 8 and 9
+implement lottery scheduling
+
+lottery scheduling:
+tickets and ticks
+randomly decide winning ticket
+assign ticket to each process
+process: p1 	p2	p3
+ticket:	 50 	100 	50
+assign a ticket to each process
+winning process? sum up tickets = 50+100+50 = 200
+generate a random number between 0 and 200
+say we get 150
+compare 150 with each ticket+last ticket(s)
+if less, process not selected, if greater or equal, process selected
+50 to 150 (less)= p1 not selected
+50+100 to 150 = p2 selected
+new example
+25 100 50 compare
+25 to 150 = p1 not selected
+25+100 to 150 = p2 not selected
+25+100+50 to 150 (greater) = p3 selected
+
+q1 = p1 p3
+q0 = --
+
+q1 = p3
+q0 = p1
+
+add tickets var to proc struct (in-built) in proc.c
+ptable is an array or size 64
+ptable {pid1, pid2, pid3(proc struct), .... 64}
+
+max 64 processes can be created
+pstat struct{ all arrays: inuse pid hticks lticks }
+
+main.c
+acquire & release : leave unchanged
+
+next lab: 5 marks - lottery
+tickets, add syscall settickets, find winning processes, create test file and cretae several processes on it
+
+proc.c:	in struct allocproc
+priority + ticket = 1 in this func
+
+when time-slice expires
+in trap.c trap routine: yield func
+yield is in proc.c
+
+write main test.c
+create 3 processes, assign any ticket value
+selected process can be seen by adding printf (print pid) in scheduler func
+run test.c in xv6
+

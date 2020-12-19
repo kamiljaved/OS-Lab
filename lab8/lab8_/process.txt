@@ -1,0 +1,16 @@
+
+-- add new var to proc struct
+void* stack;
+
+-- syscalls (called in code only)
+add syscall clone()
+add syscall join()
+
+
+-- implement clone and join in proc.c
+
+-- decalare lock & thread library functions in user.h
+
+-- update growproc in proc.c to acquire lock while updating parent heap, and update proc size of all threads as well
+
+-- implement user-level locks in ulib.c 

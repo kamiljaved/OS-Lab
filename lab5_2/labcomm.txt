@@ -1,0 +1,2 @@
+gcc -g -c mem.c
+gcc -o test main.o mem.o -lm

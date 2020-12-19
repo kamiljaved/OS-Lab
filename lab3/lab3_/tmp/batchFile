@@ -1,0 +1,11 @@
+ls > tmp/outputfile
+ls    >     tmp/outputfile
+ls>tmp/outputfile
+ls -la > tmp/outputfile
+tmp/hello.py
+tmp/hello.c
+cd /home/kamiljaved
+cd
+pwd
+echo -- End of Batch Program --
+

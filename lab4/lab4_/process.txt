@@ -1,0 +1,29 @@
+add system call setticket()
+
+add system call getpinfo()
+
+
+<proc.h>
+modify proc struct in proc.h to add ticket, hticks, lticks, queue, inuse
+current process 'proc' is declared in proc.h
+
+<user.h> <defs.h>
+struct pstat;
+
+<proc.c>
+
+>> allocproc(void)
+    found:
+        p->state = EMBRYO;
+        p->pid = nextpid++;
+        // init custom vars
+        p->ticket = 1;
+        p->queue = 1;
+        p->hticks = 0;
+        p->lticks = 0;
+        p->inuse = 1;
+
+add random() generator
+
+>> scheduler()
+    // make necessary changes

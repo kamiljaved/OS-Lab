@@ -1,0 +1,66 @@
+<xv6/include/syscall.h>
+syscall.h	#define SYS_count 22
+
+<xv6/kernel/defs.h>
+defs.h		// proc.c
+			...
+			int count(void);
+
+<xv6/user/user.h>			
+user.h		// system calls
+			int count(void);
+
+<xv6/kernel/sysproc.c>		
+sysproc.c	// since start
+			int sys_count(void)	{ return count(); }
+
+<xv6/kernel/syscall.c>		
+syscall.c	extern int sys_count(void);
+			extern int countCalls;
+			// static int (*syscalls[])(void) = {
+			[SYS_count]	sys_count
+			// };
+			// void syscall(void) { int num;
+			countCalls++;
+
+<xv6/kernel/proc.c>		
+proc.c		int countCalls = 0;
+			// extern void forkret(void);
+			// EOF
+			int count() { cprintf("%d calls have been made to system\n", countCalls); return 22; }
+
+<xv6/user/usys.S>		
+usys.S		SYSCALL(count)
+
+<xv6/user/count.c>
+count.c		// create this file (in 'user')
+			#include "types.h"
+			#include "stat.h"
+			#include "user.h"
+			#include "fcntl.h"
+			int main(int argc, char *argv[]) { count(); exit(); }
+
+<xv6/user/makefile.mk> (xv6)    <xv6/Makefile> (xv6-public)
+Makefile (or user/makefile.mk)	
+			// EXTRA=\
+			// wc.c
+			count.c
+			------------and----------
+			// UPROGS=\
+			// _wc\
+			_count\
+			(or) 	
+			// USER_PROGS := \
+			count\
+			
+// enter commands
+make
+make qemu
+(or) make qemu-nox
+
+// on xv6
+$ count
+
+// qemu exit
+ctrl+a (release both, then) x
+

@@ -11,15 +11,15 @@ mainS: main.cpp filtersS.cpp
 	$(CC) -o $(PROJ_BASE)/bin/mainS main.cpp filtersS.cpp ../src/Timer.cpp $(INCLUDES) $(LIBS) $(CFLAGS) $(LDFLAGS)
 
 main0: main.cpp filters0.cpp
-	@echo "> $@: Red-Black Cells Approach - Parallel OpenMP (pragma omp critical)"
+	@echo "> $@: Red-Black Cells Approach - Parallel Pthreads (mutex lock on diff-update)"
 	$(CC) -o $(PROJ_BASE)/bin/main0 main.cpp filters0.cpp ../src/Timer.cpp $(INCLUDES) $(LIBS) $(CFLAGS) $(LDFLAGS)
 
 main1: main.cpp filters1.cpp
-	@echo "> $@: Red-Black Cells Approach - Parallel OpenMP (per-thread diff, no padding)"
+	@echo "> $@: Red-Black Cells Approach - Parallel Pthreads (per-thread diff, no padding)"
 	$(CC) -o $(PROJ_BASE)/bin/main1 main.cpp filters1.cpp ../src/Timer.cpp $(INCLUDES) $(LIBS) $(CFLAGS) $(LDFLAGS)
 
 main2: main.cpp filters2.cpp
-	@echo "> $@: Red-Black Cells Approach - Parallel OpenMP (per-thread diff, with padding)"
+	@echo "> $@: Red-Black Cells Approach - Parallel Pthreads (per-thread diff, with padding)"
 	$(CC) -o $(PROJ_BASE)/bin/main2 main.cpp filters2.cpp ../src/Timer.cpp $(INCLUDES) $(LIBS) $(CFLAGS) $(LDFLAGS)
 
 

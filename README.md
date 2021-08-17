@@ -14,15 +14,15 @@ OS Labs in C. A lot of the labs below use the <a href="https://github.com/mit-pd
 
 ## Labs
 
-1. Sorting Algortihms in C
-2. Adding a new syscall in xv6
-3. Implementing a shell (command lind interpreter)
-4. Implementing the MLFQ+Lottery scheduler in xv6
-5. 1. Adding an exception for null pointer dereferencing in xv6
-5. 2. Implementing a memory allocator for the heap of a user-level process
-6. Rearranging the xv6 address space to place the stack at the high end
-7. Adding kernel threads to xv6
-8. 
+1. <a href="https://docs.google.com/viewer?url=">Sorting Algortihms</a>
+2. <a href="https://docs.google.com/viewer?url=">Adding a new syscall in xv6
+3. <a href="https://docs.google.com/viewer?url=">Implementing a shell (command line interpreter)</a>
+4. <a href="https://docs.google.com/viewer?url=">Implementing the MLFQ+Lottery scheduler in xv6</a>
+5. <a href="https://docs.google.com/viewer?url=">Adding an exception for null pointer dereferencing in xv6</a>
+6. <a href="https://docs.google.com/viewer?url=">Implementing a memory allocator for the heap of a user-level process</a>
+7. <a href="https://docs.google.com/viewer?url=">Rearranging the xv6 address space to place the stack at the high end</a>
+8. <a href="https://docs.google.com/viewer?url=">Adding kernel threads to xv6
+9. <a href="https://docs.google.com/viewer?url=">Parallelized implementation of Gauss-Seidel method using OpenMP and POSIX Threads (CEP)</a>
 
 ---
 

@@ -18,7 +18,7 @@ OS Labs in C. A lot of the labs below use the <a href="https://github.com/mit-pd
 2. Adding a new syscall in xv6
 3. Implementing a shell (command lind interpreter)
 4. Implementing the MLFQ+Lottery scheduler in xv6
-5. 5. Adding an exception upon null pointer dereferencing in xv6
+5. (1) Adding an exception for null pointer dereferencing in xv6
 
 ---
 

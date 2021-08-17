@@ -19,6 +19,10 @@ OS Labs in C. A lot of the labs below use the <a href="https://github.com/mit-pd
 3. Implementing a shell (command lind interpreter)
 4. Implementing the MLFQ+Lottery scheduler in xv6
 5. 1. Adding an exception for null pointer dereferencing in xv6
+5. 2. Implementing a memory allocator for the heap of a user-level process
+6. Rearranging the xv6 address space to place the stack at the high end
+7. Adding kernel threads to xv6
+8. 
 
 ---
 

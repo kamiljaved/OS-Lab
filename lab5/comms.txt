@@ -1,2 +1,0 @@
-grep "search-text" -rl
-diff file1 file2

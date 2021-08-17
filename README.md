@@ -10,7 +10,7 @@
 
 ## About
 
-OS Labs in C. A lot of the labs below use the xv6 operating system. 
+OS Labs in C. A lot of the labs below use the <a href="https://github.com/mit-pdos/xv6-public">xv6</a> operating system. 
 
 ## Labs
 

@@ -27,4 +27,4 @@ OS Labs in C. A lot of the labs below use the <a href="https://github.com/mit-pd
 ---
 
 > [kamiljaved.pythonanywhere.com](https://kamiljaved.pythonanywhere.com/) &nbsp;&middot;&nbsp;
-> GitHub [@kamiljaved98](https://github.com/kamiljaved98)
+> GitHub [@kamiljaved](https://github.com/kamiljaved)
